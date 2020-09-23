@@ -40,6 +40,8 @@ bool operator== (const Point& FirstPoint, const Point& SecondPoint)
 	return (FirstPoint.x == SecondPoint.x && FirstPoint.y == SecondPoint.y && FirstPoint.z == SecondPoint.z);
 
 }
+
+
 bool operator!= (const Point& FirstPoint, const Point& SecondPoint)
 {
 	return !(FirstPoint == SecondPoint);
@@ -57,3 +59,20 @@ void Point::SetNewCoord() {
 	cout << "\tz = ";		cin >> z;
 	Point point(this->x, this->y, this->z);
 }
+void List::addNode(Point _point)
+{
+	Node* nd = new Node;
+
+	nd->point = _point;
+	nd->next = NULL;
+
+	if (head == NULL)
+		head = nd;
+	else
+	{
+		Node* current = head;
+		while (current->next != NULL)
+			current = current->next;
+		current->next = nd;
+	}
+};
